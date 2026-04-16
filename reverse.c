@@ -1,42 +1,43 @@
 #include <stdio.h>
 
 int main() {
-    // Declare variables for digits and numbers
+    // Declare variables
     int a, b, c, d, e, x, reverse, original;
 
     // Take input from user
-    printf("Enter the value : ");
+    printf("Enter the value: ");
     scanf("%d", &x);
 
+    // Store original number
+    original = x;
+
     // Extract digits from the number
-    a = (x/10000);        // first digit
-    b = (x/1000)%10;      // second digit
-    c = (x/100)%10;       // third digit
-    d = (x/10)%10;        // fourth digit
-    e = (x%10);           // last digit
+    a = x / 10000;        // first digit
+    b = (x / 1000) % 10;  // second digit
+    c = (x / 100) % 10;   // third digit
+    d = (x / 10) % 10;    // fourth digit
+    e = x % 10;           // last digit
 
     // Print each digit
     printf("\nA: %d\nB: %d\nC: %d\nD: %d\nE: %d", a, b, c, d, e);
 
-    // Store original number (NOTE: this line is logically incorrect)
-    original = a, b, c, d, e;
-
-    // Print original number using digits
+    // Reconstruct original number (for display purpose)
     printf("\nOriginal number: %d%d%d%d%d", a, b, c, d, e);
 
-    // Store reverse number (NOTE: this line is also incorrect)
-    reverse = e, d, c, b, a;
+    // Create reverse number using digits
+    reverse = e*10000 + d*1000 + c*100 + b*10 + a;
 
     // Print reverse number
-    printf("\nReverse number: %d%d%d%d%d", e, d, c, b, a);
+    printf("\nReverse number: %d", reverse);
 
-    // Compare original and reverse
+    // Check if number is palindrome
     if(original == reverse)
     {
-        printf("Base are equal");   // if palindrome
+        printf("\nNumbers are equal (Palindrome)");
     }
-    else{
-        printf("Unequal numbers");  // if not palindrome
+    else
+    {
+        printf("\nNumbers are not equal");
     }
 
     return 0;
